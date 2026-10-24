@@ -1,0 +1,37 @@
+name: Instabox SSH keepalive
+
+on:
+  schedule:
+    - cron: '2/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instabox-ssh-keepalive
+  cancel-in-progress: true
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Open restricted SSH session
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.INSTABOX_KEEPALIVE_SSH_KEY }}
+        run: |
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$SSH_PRIVATE_KEY" > "$HOME/.ssh/instabox_keepalive"
+          chmod 600 "$HOME/.ssh/instabox_keepalive"
+          cat > "$HOME/.ssh/known_hosts" <<'EOF'
+          [api.instabox.sh]:2222 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVOufFYj8SrmXvQI092rZncoHoY2a1HnnKS5KavD8xR
+          EOF
+          chmod 600 "$HOME/.ssh/known_hosts"
+          ssh -p 2222 \
+            -i "$HOME/.ssh/instabox_keepalive" \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o ConnectTimeout=15 \
+            -o StrictHostKeyChecking=yes \
+            ibssh_socyx4vxpotz3ovdwujqprxym4@api.instabox.sh true
