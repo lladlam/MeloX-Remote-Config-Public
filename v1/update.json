@@ -1,10 +1,10 @@
 {
-  "version": "0.4.3-Dev",
-  "name": "MeloX Android 0.4.3-Dev",
-  "notes": "增加持久化音频分析与媒体预取，修复 AutoMix 双播放器状态，完善逐字歌词时间线、播放音质状态和歌单操作。",
-  "pageUrl": "https://github.com/lladlam/MeloX-Android/releases/tag/0.4.3-Dev",
-  "apkUrl": "https://github.com/lladlam/MeloX-Android/releases/download/0.4.3-Dev/MeloX-Android-0.4.3-Dev.apk",
-  "apkName": "MeloX-Android-0.4.3-Dev.apk",
-  "publishedAt": "2026-08-24T11:34:32Z",
-  "sha256": "e05e5f1108ee57c071310f12ee0c59195ad2623624d01db7ee83a1c8b4e6ab26"
+  "version": "0.7.4-security",
+  "name": "MeloX Android 0.7.4-security",
+  "notes": "云控签名密钥轮换、强制安全更新开关，以及 Android 10 崩溃、下载任务崩溃和 Bilibili 解析 OOM 修复。",
+  "pageUrl": "https://github.com/lladlam/MeloX-Android/releases/tag/0.7.4-security",
+  "apkUrl": "https://github.com/lladlam/MeloX-Android/releases/download/0.7.4-security/MeloX-Android-0.7.4-security-arm64-v8a.apk",
+  "apkName": "MeloX-Android-0.7.4-security-arm64-v8a.apk",
+  "publishedAt": "2026-11-15T15:48:49Z",
+  "sha256": "a34c937856284090a2e26cda39c6fbc7d1d6359ed4aa5fe22e384e1bbcb4511e"
 }
